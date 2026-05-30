@@ -14,11 +14,5 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->render(function (\Throwable $e) {
-            header('Content-Type: text/plain');
-            echo "CRITICAL ERROR: " . $e->getMessage() . "\n";
-            echo "File: " . $e->getFile() . " Line: " . $e->getLine() . "\n";
-            echo $e->getTraceAsString();
-            exit(1);
-        });
+        //
     })->create();
