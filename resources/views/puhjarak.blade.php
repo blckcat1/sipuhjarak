@@ -488,9 +488,9 @@
   </div>
 
   <!-- Navigation Header -->
-  <nav class="fixed top-0 left-0 right-0 z-40 transition-all duration-500 border-b"
-       :class="scrolled ? 'bg-slate-950/85 backdrop-blur-xl border-white/[0.06] py-3 shadow-[0_1px_0_rgba(255,255,255,0.04),0_8px_32px_rgba(0,0,0,0.4)]' : 'bg-transparent border-transparent py-5'">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+  <nav class="fixed z-40 transition-all duration-500 top-4 left-4 right-4 rounded-full bg-slate-950/75 backdrop-blur-xl border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.5)] py-2.5 px-4 md:top-0 md:left-0 md:right-0 md:rounded-none md:border-b md:px-0 md:py-0 md:bg-transparent md:shadow-none"
+       :class="scrolled ? 'md:bg-slate-950/85 md:backdrop-blur-xl md:border-white/[0.06] md:py-3 md:shadow-[0_1px_0_rgba(255,255,255,0.04),0_8px_32px_rgba(0,0,0,0.4)]' : 'md:bg-transparent md:border-transparent md:py-5'">
+    <div class="max-w-7xl mx-auto px-0 md:px-6 flex items-center justify-between">
       
       <!-- Logo -->
       <button @click="activeTab = 'beranda'; window.scrollTo(0,0);" class="flex items-center gap-3 group">
@@ -588,7 +588,7 @@
 
       <!-- Mobile Menu Button -->
       <button @click="isMobileMenuOpen = !isMobileMenuOpen" 
-              class="md:hidden p-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-white hover:bg-white/10 transition-colors flex items-center justify-center">
+              class="md:hidden p-2.5 rounded-full bg-white/[0.06] border border-white/10 text-white hover:bg-white/10 transition-colors flex items-center justify-center">
         <!-- Close icon (x) -->
         <svg x-show="isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         <!-- Menu icon (hamburger) -->
