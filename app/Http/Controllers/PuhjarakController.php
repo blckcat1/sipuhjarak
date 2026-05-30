@@ -164,6 +164,7 @@ class PuhjarakController extends Controller
                 'id' => $complaint->id,
                 'judul' => $complaint->judul,
                 'kategori' => $complaint->kategori,
+                'deskripsi' => $complaint->deskripsi,
                 'pelapor' => $complaint->pelapor,
                 'status' => $complaint->status,
                 'foto' => $complaint->foto,
