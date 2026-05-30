@@ -599,9 +599,22 @@
 
   <!-- Mobile Menu Panel -->
   <div x-show="isMobileMenuOpen"
-       class="fixed inset-0 z-30 bg-black/50 backdrop-blur-lg md:hidden"
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0"
+       x-transition:enter-end="opacity-100"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="opacity-100"
+       x-transition:leave-end="opacity-0"
+       class="fixed inset-0 z-50 bg-black/60 backdrop-blur-md md:hidden"
        @click="isMobileMenuOpen = false">
     <div class="absolute right-0 top-0 bottom-0 w-72 bg-slate-950/95 backdrop-blur-2xl p-6 shadow-2xl flex flex-col gap-6 border-l border-white/5"
+         x-show="isMobileMenuOpen"
+         x-transition:enter="transition ease-out duration-300 transform"
+         x-transition:enter-start="translate-x-full"
+         x-transition:enter-end="translate-x-0"
+         x-transition:leave="transition ease-in duration-200 transform"
+         x-transition:leave-start="translate-x-0"
+         x-transition:leave-end="translate-x-full"
          @click.stopPropagation>
       <div class="flex items-center justify-between border-b border-white/5 pb-4">
         <span class="font-black text-white text-lg">Menu Navigasi</span>
