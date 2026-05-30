@@ -588,9 +588,11 @@
 
       <!-- Mobile Menu Button -->
       <button @click="isMobileMenuOpen = !isMobileMenuOpen" 
-              class="md:hidden p-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-white hover:bg-white/10 transition-colors">
-        <template x-if="isMobileMenuOpen"><i data-lucide="x" class="w-5 h-5"></i></template>
-        <template x-if="!isMobileMenuOpen"><i data-lucide="menu" class="w-5 h-5"></i></template>
+              class="md:hidden p-2.5 rounded-xl bg-white/[0.06] border border-white/10 text-white hover:bg-white/10 transition-colors flex items-center justify-center">
+        <!-- Close icon (x) -->
+        <svg x-show="isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        <!-- Menu icon (hamburger) -->
+        <svg x-show="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
       </button>
     </div>
   </nav>
@@ -603,8 +605,8 @@
          @click.stopPropagation>
       <div class="flex items-center justify-between border-b border-white/5 pb-4">
         <span class="font-black text-white text-lg">Menu Navigasi</span>
-        <button @click="isMobileMenuOpen = false" class="p-2 rounded-lg bg-white/5 text-white">
-          <i data-lucide="x" class="w-5 h-5"></i>
+        <button @click="isMobileMenuOpen = false" class="p-2 rounded-lg bg-white/5 text-white flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
       </div>
       <div class="flex flex-col gap-3">
