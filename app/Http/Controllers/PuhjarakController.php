@@ -138,13 +138,13 @@ class PuhjarakController extends Controller
             $pelapor = Auth::user()->name;
         }
 
-        // Handle Photo Upload
+        // Handle Photo Upload (Base64 for Vercel compatibility)
         $fotoPath = null;
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
-            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads/aduan'), $filename);
-            $fotoPath = '/uploads/aduan/' . $filename;
+            $fileData = file_get_contents($file->getRealPath());
+            $mimeType = $file->getClientMimeType();
+            $fotoPath = 'data:' . $mimeType . ';base64,' . base64_encode($fileData);
         }
 
         $complaint = Complaint::create([
@@ -348,13 +348,13 @@ class PuhjarakController extends Controller
         ];
         $color = $colorMap[$request->tag] ?? 'bg-slate-500 text-white';
 
-        // Handle news cover upload
+        // Handle news cover upload (Base64 for Vercel compatibility)
         $imgPath = 'https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&q=80'; // default fallback
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
-            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads/berita'), $filename);
-            $imgPath = '/uploads/berita/' . $filename;
+            $fileData = file_get_contents($file->getRealPath());
+            $mimeType = $file->getClientMimeType();
+            $imgPath = 'data:' . $mimeType . ';base64,' . base64_encode($fileData);
         }
 
         $news = News::create([
@@ -425,12 +425,12 @@ class PuhjarakController extends Controller
         $news->color = $color;
         $news->description = $request->description;
 
-        // Handle news cover upload
+        // Handle news cover upload (Base64 for Vercel compatibility)
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
-            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads/berita'), $filename);
-            $news->img = '/uploads/berita/' . $filename;
+            $fileData = file_get_contents($file->getRealPath());
+            $mimeType = $file->getClientMimeType();
+            $news->img = 'data:' . $mimeType . ';base64,' . base64_encode($fileData);
         }
 
         $news->save();

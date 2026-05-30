@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('pelapor');
             $table->string('status')->default('pending');
             $table->boolean('is_anonim')->default(false);
-            $table->string('foto')->nullable();
+            $table->text('foto')->nullable();
             $table->timestamps();
         });
     }

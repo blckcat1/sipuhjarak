@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('date');
             $table->string('tag');
             $table->string('color');
-            $table->string('img')->nullable();
+            $table->text('img')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
